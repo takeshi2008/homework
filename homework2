@@ -34,7 +34,7 @@ for index,each_div in enumerate(divs):
         if strongs:
             b = strongs[-1].find('b')
             print('價格: '+b.text+'元')
-    
+            print('')
     amount+=1
     if amount>29:
         break
