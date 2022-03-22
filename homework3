@@ -1,0 +1,18 @@
+import requests
+from bs4 import BeautifulSoup
+res = requests.get('https://www.books.com.tw/web/sys_saletopb/books')
+soup = BeautifulSoup(res.text,'html.parser')
+lis = soup.find_all("lt", class_="item")
+
+
+for eath_li in lis[:3]:
+    img = eath_li.find("img")
+    imgSrc = img['scr']
+    bookname = img['alt']
+    
+    imgSrcRequests = requests.get(imgSrc)
+    
+    
+    with open(bookname+".jpg","bw") as file:
+        file.write(imgSrcRequests.content)
+
