@@ -7,7 +7,7 @@ lis = soup.find_all("lt", class_="item")
 
 for eath_li in lis[:3]:
     img = eath_li.find("img")
-    imgSrc = img['scr']
+    imgSrc = img['src']
     bookname = img['alt']
     
     imgSrcRequests = requests.get(imgSrc)
