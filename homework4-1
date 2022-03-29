@@ -1,0 +1,4 @@
+import re
+gmail = input()
+if re.fullmatch('^[^@\s]+@[^@\s]+\.[^@\s]+$',gmail) != None:
+    
