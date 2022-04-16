@@ -1,4 +1,6 @@
 import re
 gmail = input()
 if re.fullmatch('^[^@\s]+@[^@\s]+\.[^@\s]+$',gmail) != None:
-    
+    print('合法的郵箱')  
+else:    
+    print('無效的郵箱')
