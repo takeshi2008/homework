@@ -1,0 +1,20 @@
+from selenium import webdriver
+from bs4 import BeautifulSoup
+import time
+chrome = webdriver.Chrome()#使用程控瀏覽器
+chrome.get("https://tw.eztable.com/channel/244?from_ern=channel_list%2F330&from_type=channel_list")#至該網站
+time.sleep(3)
+
+for i in range(2):
+    chrome.execute_script('window.scrollTo(0,document.body.scrollHeight);')#將拉調往下拉
+    #butten = chrome.find_elements_by_xpath("//*[@id='channel-tab-restaurant']")
+    #butten.click()
+    time.sleep(1)
+
+soup = BeautifulSoup(chrome.page_source,"html.parser")
+for each_prod in soup.find_all('h4',class_="dVhcbM HItjj"):
+    price = soup.find_all("span",class_="sc-fAjcbJ cOTUOW")
+    productprice = price.text
+    productName = each_prod.text
+    print(productName+"價格: "+productprice)
+chrome.close()
