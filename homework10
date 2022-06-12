@@ -19,6 +19,6 @@ for movie in range(6):
     print(moviename,moviephoto,moviefilm)
 
     text_message=TextSendMessage(text=moviename+"預告片:"+moviefilm)
-image_message = ImageSendMessage(original_content_url=moviephoto)
-message = [text_message,image_message]       
-line_bot_api.push_message(UserID,message)
+    image_message = ImageSendMessage(original_content_url=moviephoto)
+    message = [text_message,image_message]       
+    line_bot_api.push_message(UserID,message)
