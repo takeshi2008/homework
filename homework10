@@ -15,10 +15,8 @@ for movie in range(6):
     try:
         moviefilm = soup.find_all("div",class_="release_btn color_btnbox")[movie].find("a",class_="btn_s_vedio gabtn")["href"]
     except:
-            moviefilm = "沒有預告片"
-    print(moviename,moviephoto,moviefilm)
-
+        moviefilm = "沒有預告片"
     text_message=TextSendMessage(text=moviename+"預告片:"+moviefilm)
-    image_message = ImageSendMessage(original_content_url=moviephoto)
+    image_message = ImageSendMessage(original_content_url=moviephoto,preview_image_url=moviephoto)
     message = [text_message,image_message]       
     line_bot_api.push_message(UserID,message)
