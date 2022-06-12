@@ -1,5 +1,5 @@
 from linebot import LineBotApi
-from linebot.modeels import TextSendMessage
+from linebot.models import TextSendMessage
 #TextSendMessage,StickerSendMessage,LocationSendMessage,VideoSendMessage,AudioSendMessage,ImageSendMessage
 import requests
 from bs4 import BeautifulSoup
