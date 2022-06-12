@@ -1,5 +1,5 @@
 from linebot import LineBotApi
-from linebot.models import TextSendMessage
+from linebot.models import TextSendMessage,ImageSendMessage
 #TextSendMessage,StickerSendMessage,LocationSendMessage,VideoSendMessage,AudioSendMessage,ImageSendMessage
 import requests
 from bs4 import BeautifulSoup
@@ -18,5 +18,7 @@ for movie in range(6):
             moviefilm = "沒有預告片"
     print(moviename,moviephoto,moviefilm)
 
-message = [moviename,moviephoto,moviefilm]
-text_message = TextSendMessage(UserID,text = message)        
+    text_message=TextSendMessage(text=moviename+"預告片:"+moviefilm)
+image_message = ImageSendMessage(original_content_url=moviephoto)
+message = [text_message,image_message]       
+line_bot_api.push_message(UserID,message)
